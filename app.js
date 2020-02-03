@@ -7,6 +7,10 @@ let saWithdraw = document.querySelector('#saWdrw');
 
 submitOK = 'true';
 
+function depositChecking() {
+    alert("Clickety, click, click!!!");
+}
+
 // Checking Account
 // deposit
 // event listener attached to deposit button
