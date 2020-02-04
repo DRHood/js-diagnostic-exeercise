@@ -2,6 +2,19 @@
 chBalNum = 0;
 saBalNum = 0;
 
+function checkAccounts() {
+    if(chBalNum < 10) {
+        document.getElementById("checking").classList.add("zero");
+    } else {
+        document.getElementById("checking").classList.remove("zero");
+    }
+    if(saBalNum < 10) {
+        document.getElementById("savings").classList.add("zero");
+    } else {
+        document.getElementById("savings").classList.remove("zero");
+    }
+}
+checkAccounts();
 // Checking Account
 // deposit 
 // event listener attached to deposit button
@@ -16,6 +29,7 @@ document.querySelector('#chDep').addEventListener('click', () => {
     chBalNum += chNumber;
     // display new balance
     chBalance.innerHTML = "$" + chBalNum;
+    checkAccounts();
     return chBalNum;
 });
 
@@ -36,6 +50,7 @@ document.querySelector('#chWdrw').addEventListener('click', () => {
         // display new balance
         chBalance.innerHTML = "$" + chBalNum;
     }
+    checkAccounts();
     return chBalNum;
 });
 
@@ -53,6 +68,7 @@ document.querySelector('#saDep').addEventListener('click', () => {
     saBalNum += saNumber;
     // display new balance
     saBalance.innerHTML = "$" + saBalNum;
+    checkAccounts();
     return saBalNum;
 });
 
@@ -66,12 +82,13 @@ document.querySelector('#saWdrw').addEventListener('click', () => {
     // get savings balance
     let saBalance = document.querySelector('#saBal');
     // subtract input from balance if available, otherwise alert
-    if(chNumber > chBalNum) {
+    if(saNumber > saBalNum) {
         alert("Insufficient Funds")
     } else {
-        chBalNum -= chNumber;
+        saBalNum -= saNumber;
         // display new balance
-        chBalance.innerHTML = "$" + chBalNum;
+        saBalance.innerHTML = "$" + saBalNum;
     }
+    checkAccounts();
     return saBalNum;
 });
