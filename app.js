@@ -17,3 +17,18 @@ document.querySelector('#chDep').addEventListener('click', () => {
     document.querySelector('#chBal').innerHTML = "$" + chBalNum;
     return chBalNum;
 });
+
+// event listener attached to deposit button
+document.querySelector('#saDep').addEventListener('click', () => {
+    // get amount from input field
+    let saAmount = document.querySelector('#saAmnt').value;
+    // change input amount to integer
+    let saNumber = parseInt(saAmount);
+    // get checking balance
+    let saBalance = document.querySelector('#saBal').textContent;
+    // add input and balance
+    saBalNum += saNumber;
+    // display new balance
+    document.querySelector('#saBal').innerHTML = "$" + saBalNum;
+    return saBalNum;
+});
