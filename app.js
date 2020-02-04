@@ -1,28 +1,19 @@
-let chAmount = document.querySelector('#chAmnt').value;
-let chDeposit = document.querySelector('#chDep');
-let chWithdraw = document.querySelector('#chWdrw');
-let saAmount = document.querySelector('#saAmnt').value;
-let saDeposit =document.querySelector('#saDep');
-let saWithdraw = document.querySelector('#saWdrw');
-
-submitOK = 'true';
-
-function depositChecking() {
-    alert("Clickety, click, click!!!");
-}
-
+// Global sum variables
+chBalNum = 0;
+saBalNum = 0;
 // Checking Account
-// deposit
+// deposit 
 // event listener attached to deposit button
-document.querySelector('#chDep').addEventListener('click', depositChecking);
-// get amount from input field
-// store in variable
-// add amount to account total
-
-// withdraw
-// get amount from input field
-
-// subtract amount from account total
-
-
-// Savings Account
+document.querySelector('#chDep').addEventListener('click', () => {
+    // get amount from input field
+    let chAmount = document.querySelector('#chAmnt').value;
+    // change input amount to integer
+    let chNumber = parseInt(chAmount);
+    // get checking balance
+    let chBalance = document.querySelector('#chBal').textContent;
+    // add input and balance
+    chBalNum += chNumber;
+    // display new balance
+    document.querySelector('#chBal').innerHTML = "$" + chBalNum;
+    return chBalNum;
+});
